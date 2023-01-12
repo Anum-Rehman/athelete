@@ -1,0 +1,13 @@
+@import './list.scss';
+@import './profile.scss';
+@import './form.scss';
+
+body {
+  display: flex;
+  justify-content: center;
+  padding: 5%;
+  background-color: $default-background-color;
+  #__next {
+    flex-grow: 1;
+  }
+}

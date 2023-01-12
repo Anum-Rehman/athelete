@@ -1,0 +1,19 @@
+@import './constant.scss';
+@import './responsive.scss';
+
+.listHeading{
+    text-align: center;
+    color: white;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+.listTable{
+    min-width: 950px;
+
+    @include respond-to(laptop-small) {
+        min-width: 850px;
+      }
+    @include respond-to(mobile) {
+        min-width: 350px;
+      }
+}

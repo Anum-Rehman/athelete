@@ -1,0 +1,25 @@
+.stepper {
+    max-width: 500px;
+    margin: auto;
+}
+.form {
+    max-width: 500px;
+    margin: 50px auto;
+    &-input {
+        margin: 10px 0;
+    }
+    &-button {
+        background-color: $main_color;
+        float: right;
+        margin-left: 10px;
+    }
+    .error {
+        color: #cc0404;
+    }
+}
+
+.profile-image {
+    display: flex;
+    justify-content: center;
+    margin: 120px auto 0;
+}

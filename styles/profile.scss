@@ -1,0 +1,78 @@
+@import './constant.scss';
+@import './responsive.scss';
+
+.profile{
+    width: 100%;
+    &_heading{
+        text-align: center;
+        font-size: 3em;
+        font-weight: 700;
+        color: white;
+    }
+    &_subheading{
+        color: $main_color;
+        text-align: center;
+        font-weight: bold;
+        letter-spacing: 2px;
+
+    }
+    &_details{
+        text-align: left;
+        margin: 80px 0 0 0;
+        height: 250px;
+        &__heading{
+            color: #000000;
+            font-weight: bold;
+        }
+    
+        @include respond-to(mobile) {
+            margin: 30px 0 0 0;
+          }
+    }
+    &_description{
+        text-align: left;
+        margin: 80px 0 0 0;
+        height: 250px;
+        &__heading{
+            color: #000000;
+            font-weight: bold;
+        }
+      
+        @include respond-to(mobile) {
+            margin: 30px 0 0 0;
+          }
+    }
+    &_image{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: $default-background-color;
+        background-color: $main_color;
+        margin: 80px 0 0 0;
+        height: 250px;
+        &__avatar{
+
+            margin-top: -89px;
+            height: 8em;
+            width: 8em;
+        }
+        &__heading{
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: large;
+        }
+        &__summary{
+            color: $default-background-color;
+        }
+    }
+    &-icon {
+        float: right;
+        cursor: pointer;
+        svg {
+            path {
+                fill: $main_color;
+            }
+        }
+    }
+}
