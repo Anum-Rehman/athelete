@@ -22,4 +22,8 @@
     display: flex;
     justify-content: center;
     margin: 120px auto 0;
+    &__avatar {
+        width: 120px;
+        height: 120px;
+    }
 }

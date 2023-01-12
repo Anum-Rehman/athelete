@@ -8,7 +8,6 @@ import FormSelectInput from '../FormSelectInput';
 import FormMultiSelect from '../FormMultiSelect';
 import FormButton from "../FormButton";
 import { Avatar } from '@mui/material';
-import fetchJson from '../../lib/fetchJson';
 import dayjs from 'dayjs';
 
 const BasicInfoSchema = Yup.object().shape({
