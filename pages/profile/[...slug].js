@@ -73,7 +73,7 @@ const Profile = ({ profile }) => {
 export default Profile
 
 export async function getServerSideProps({res,req,params}) {
-  const response = await fetch(`http://localhost:3000/api/${params.slug[0]}`);
+  const response = await fetch(`${process.env.ROOT_DIR}/api/${params.slug[0]}`);
   const profile = await response.json();
 
   return {

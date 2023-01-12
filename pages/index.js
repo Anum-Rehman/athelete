@@ -85,7 +85,7 @@ export default function Home({ profile }) {
 
 export async function getServerSideProps({ query }) {
   if (query.id) {
-    const response = await fetch(`http://localhost:3000/api/${query.id}`);
+    const response = await fetch(`${process.env.ROOT_DIR}/api/${query.id}`);
     const profile = await response.json();
   
     return {

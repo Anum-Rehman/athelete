@@ -75,7 +75,7 @@ const List = ({ profiles }) => {
 export default List
 
 export async function getServerSideProps() {
-    const response = await fetch('http://localhost:3000/api/users');
+    const response = await fetch(`${process.env.ROOT_DIR}/api/users`);
     const profiles = await response.json();
     return {
         props: {
