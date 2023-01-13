@@ -1,4 +1,4 @@
-import clientPromise from "../../lib/mongodb";
+import clientPromise from "../../rootLib/mongodb";
 const ObjectId = require('mongodb').ObjectId;
 
 
@@ -7,7 +7,7 @@ export default async (req, res) => {
     const { id } = req.query;
 
     try {
-        const client = await clientPromise;
+        const client = await clientPromise();
         const db = client.db("athlete");
         const stringId = id;
         const objectId = new ObjectId(stringId);

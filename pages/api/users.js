@@ -1,10 +1,10 @@
 /* eslint-disable import/no-anonymous-default-export */
-import clientPromise from "../../lib/mongodb";
+import clientPromise from "../../rootLib/mongodb";
 
 
 export default async (req, res) => {
     try {
-        const client = await clientPromise;
+        const client = await clientPromise();
         const db = client.db("athlete");
         const profile = await db.collection("user").find({}).toArray()
         res.status(200).json({ status: true, data: profile });

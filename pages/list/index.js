@@ -72,6 +72,7 @@ const List = ({ profiles }) => {
 export default List
 
 export async function getServerSideProps() {
+    console.log(`${ process.env.ROOT_DIR }/api/users`)
     const response = await fetch(`${process.env.ROOT_DIR}/api/users`);
     const profiles = await response.json();
     return {

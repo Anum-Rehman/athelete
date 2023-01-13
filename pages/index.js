@@ -3,7 +3,7 @@ import Stepper from '../components/Stepper'
 import About from '../components/About'
 import Summary from '../components/Summary'
 import BasicInfo from '../components/BasicInfo'
-import fetchJson from '../lib/fetchJson'
+import fetchJson from '../rootLib/fetchJson'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 
