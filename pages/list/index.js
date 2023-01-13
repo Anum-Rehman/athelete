@@ -54,7 +54,7 @@ const List = ({ profiles }) => {
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell>
-                                    <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
+                                    <Avatar alt="Cindy Baker" src="" />
                                 </TableCell>
                                 <TableCell align="left">{profile.name}</TableCell>
                                 <TableCell align="left">{profile.gender}</TableCell>
