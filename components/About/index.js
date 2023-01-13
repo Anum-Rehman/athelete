@@ -93,7 +93,7 @@ const About = ({
                                 disabled={(submitCount > 0 && !isValid && !errors.message) || !values.team || !values.location || !values.description || !values.interest}
                                 label="Next"
                             />
-                            <FormButton onClick={handleEdit} label="Back" />
+                            <FormButton onClick={() => handleEdit(values)} label="Back" />
                             </div>
                         </Form>
                     )

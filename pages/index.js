@@ -17,8 +17,9 @@ export default function Home({ profile }) {
     setData({ ...data, ...values })
   }
 
-  const handleEdit = () => {
+  const handleEdit = (values) => {
     setActiveStep(0);
+    if (values) setData({ ...data, ...values });
   }
 
   const handleSubmit = () => {
@@ -64,7 +65,7 @@ export default function Home({ profile }) {
   }
 
   const activeComponent = {
-    0: <BasicInfo handleNextClick={handleNextClick} data={data} handleEdit={handleEdit} />,
+    0: <BasicInfo handleNextClick={handleNextClick} data={data} />,
     1: <About handleNextClick={handleNextClick} data={data} handleEdit={handleEdit} />,
     2: <Summary data={data} handleSubmit={handleSubmit} handleEdit={handleEdit} />
   }

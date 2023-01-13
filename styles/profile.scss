@@ -19,7 +19,6 @@
     &_details {
         margin: 80px 0 0 0;
         height: 250px;
-        color: #000000!important;
         text-align: left !important;
     
         @include respond-to(mobile) {

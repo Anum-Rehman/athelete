@@ -69,7 +69,7 @@ export default function Summary({ data, handleSubmit, handleEdit }) {
             </fieldset>
             <div className='form-buttons__container'>
                 <FormButton onClick={handleSubmit} label="Submit" />
-                <FormButton onClick={handleEdit} label="Back" />
+                <FormButton onClick={() => handleEdit()} label="Back" />
             </div>
         </div>
     )
