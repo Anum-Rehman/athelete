@@ -30,7 +30,6 @@ const About = ({
         >
             {
                 ({ values, errors, touched, handleChange, submitCount, isValid }) => {
-                    console.log({errors, values})
                     return (
                         <Form className="form">
                             <div className="profile__form">

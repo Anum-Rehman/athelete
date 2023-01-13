@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable @next/next/no-img-element */
+import React, { useState } from 'react';
 import { Form, Formik } from 'formik';
 import classNames from 'classnames';
 import * as Yup from "yup";
@@ -9,6 +10,15 @@ import FormMultiSelect from '../FormMultiSelect';
 import FormButton from "../FormButton";
 import { Avatar } from '@mui/material';
 import dayjs from 'dayjs';
+const cloudinary = require('cloudinary/lib/cloudinary');
+
+
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET
+});
+
 
 const BasicInfoSchema = Yup.object().shape({
     name: Yup.string()
@@ -20,41 +30,35 @@ const BasicInfoSchema = Yup.object().shape({
 });
 
 
+
+
 const BasicInfo = ({
     handleNextClick,
     data
 }) => {
+    const [imageUrl, setImageUrl] = useState('');
 
     const genders = [
         { value: 'male', label: 'Male' },
         { value: 'female', label: 'Female' }
     ];
 
-    const uploadImage = async (e) => {
-        // e.preventDefault();
+    const uploadImage = async (e, setFieldValue) => {
         const file = e.target.files[0]
         const formData = new FormData();
         formData.append('file', file);
+        formData.append('upload_preset', 'ml_default');
 
 
-        // try {
-        //     fetchJson("/api/upload", {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "multipart/form-data",
-        //             "Access-Control-Allow-Origin": "*",
-        //         },
-        //         file: formData,
-        //     })
-        //         .then((res) => {
-        //             console.log({ res })
-        //         })
-        //         .catch((err) => {
-        //             console.log({ err })
-        //         });
-        // } catch (error) {
-        //     console.error("An unexpected error happened:", error);
-        // }
+        const res = await fetch(
+            'https://api.cloudinary.com/v1_1/dw1xlf0tq/image/upload',
+            {
+                method: 'POST',
+                body: formData,
+            }
+        );
+        const data = await res.json();
+        setFieldValue('image', data.secure_url)
     };
 
     return (
@@ -63,7 +67,7 @@ const BasicInfo = ({
                 name: data.name || '',
                 dob: data.dob || dayjs(new Date()).format('MM/DD/YYYY'),
                 gender: data.gender || '',
-                image: '',
+                image: data.image || '',
                 sports: data.sports || []
             }}
             validationSchema={BasicInfoSchema}
@@ -76,16 +80,17 @@ const BasicInfo = ({
                             <div className='profile-image'>
                                 <input
                                     type="file"
-                                    onChange={uploadImage}
+                                    onChange={(e) => uploadImage(e, setFieldValue)}
                                     id="upload"
                                     accept="image/*"
                                     style={{ display: 'none' }}
                                 />
                                 <label htmlFor="upload">
                                     <Avatar
-                                        src="/img/placeholder.png"
+                                        src={values.image || "/img/placeholder.png"}
                                         className='profile_image__avatar'
                                     />
+
                                 </label>
                             </div>
                             <div>

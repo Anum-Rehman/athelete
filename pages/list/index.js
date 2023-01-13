@@ -13,9 +13,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useRouter } from 'next/router';
 
-function createData(id, name, gender, location) {
-    return { id, name, gender, location };
-}
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
         backgroundColor: theme.palette.common.black,
@@ -34,7 +31,7 @@ const List = ({ profiles }) => {
     }
 
     return (
-        <div>
+        <div style={{ maxWidth: "95%", margin: "0 auto" }} >
             <Typography variant='h5' className="listHeading">List Of Athelete</Typography>
             <TableContainer component={Paper}>
                 <Table className="listTable" size="large" aria-label="a dense table">
@@ -54,7 +51,7 @@ const List = ({ profiles }) => {
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell>
-                                    <Avatar alt="Cindy Baker" src="" />
+                                    <Avatar alt="Cindy Baker" src={profile.image || "/static/images/avatar/3.jpg"} />
                                 </TableCell>
                                 <TableCell align="left">{profile.name}</TableCell>
                                 <TableCell align="left">{profile.gender}</TableCell>

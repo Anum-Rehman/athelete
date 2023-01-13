@@ -33,7 +33,7 @@ const Profile = ({ profile }) => {
         <Grid xs={4} sm={8} md={4} >
             <Item className='profile_image'>
               <div>
-            <Avatar alt="Remy Sharp" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1BwYl1Svb2h_YRhj9tcnZk0yAuIHh3oBM03dzDa8f&s" className='profile_image__avatar'/>
+                <Avatar alt="Remy Sharp" src={profile.image || "/img/placeholder.png"} className='profile_image__avatar'/>
             </div>
               <h3 className='profile_image__heading'>Hello I&apos;m {profile.name}</h3>
             <p className='profile_image__summary'>

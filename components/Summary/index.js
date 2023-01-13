@@ -11,25 +11,25 @@ export default function Summary({ data, handleSubmit, handleEdit }) {
                 <legend>Basic Info</legend>
                 <div className={styles.form} >
                     <FormTextInput
-                        value={data.name}
+                        value={data?.name}
                         label="Name"
                         className="form-input"
                         readOnly
                     />
                     <FormDateInput
-                        value={data.dob}
+                        value={data?.dob}
                         label="Date of Birth"
                         className="form-input"
                         readOnly
                     />
                     <FormTextInput
-                        value={data.gender}
+                        value={data?.gender}
                         label="Gender"
                         className="form-input"
                         readOnly
                     />
                     <FormTextInput
-                        value={data.sports.join(", ")}
+                        value={data?.sports.join(", ")}
                         label="Sports"
                         className="form-input"
                         readOnly
@@ -41,26 +41,26 @@ export default function Summary({ data, handleSubmit, handleEdit }) {
                 <legend>About Info</legend>
                 <div className={styles.form} >
                     <FormTextInput
-                        value={data.description}
+                        value={data?.description}
                         label="Description"
                         className="form-input"
                         readOnly
                         multiple
                     />
                     <FormTextInput
-                        value={data.location}
+                        value={data?.location}
                         label="Location"
                         className="form-input"
                         readOnly
                     />
                     <FormTextInput
-                        value={data.interest}
+                        value={data?.interest}
                         label="Interests"
                         className="form-input"
                         readOnly
                     />
                     <FormTextInput
-                        value={data.team}
+                        value={data?.team}
                         label="Team"
                         className="form-input"
                         readOnly
