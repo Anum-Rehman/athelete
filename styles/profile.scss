@@ -3,30 +3,36 @@
 
 .profile {
     width: 100%;
-}
+    &_heading {
+        text-align: center;
+        font-size: 3em !important;
+        font-weight: 700 !important;
+        color: white;
+        font-weight: bold;
+    }
+    &_subheading {
+        color: $main_color;
+        text-align: center;
+        font-weight: bold !important;
+        letter-spacing: 2px !important;
+    }
+    &_details {
+        margin: 80px 0 0 0;
+        height: 250px;
+        color: #000000!important;
+        text-align: left !important;
+    
+        @include respond-to(mobile) {
+            margin: 30px 0 0 0;
+        }
 
-.profile_heading {
-    text-align: center;
-    font-size: 3em;
-    font-weight: 700;
-    color: white;
-    font-weight: bold;
-}
+        h5 {
+            text-align: center!important;
+        }
 
-.profile_subheading {
-    color: $main_color;
-    text-align: center;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-.profile_details {
-    text-align: left;
-    margin: 80px 0 0 0;
-    height: 250px;
-
-    @include respond-to(mobile) {
-        margin: 30px 0 0 0;
+        &__heading {
+            color: #000000 !important;
+        }
     }
 }
 

@@ -2,19 +2,23 @@
     max-width: 500px;
     margin: auto;
 }
+
 .form {
     max-width: 500px;
     margin: 50px auto;
+    &-input {
+        margin: 10px 0;
+    }
+    &-button {
+    background-color: $main_color  !important;
+    float: right;
+    margin-left: 10px !important;
+    color: #fff!important;
+    &:disabled {
+        background-color: rgba(0, 0, 0, 0.12) !important;
+        color: rgba(0, 0, 0, 0.26) !important;
+    }
 }
-
-.form-input {
-    margin: 10px 0;
-}
-
-.form-button {
-    background-color: $main_color !important;
-        float: right;
-        margin-left: 10px !important;
 }
 
 .error {
