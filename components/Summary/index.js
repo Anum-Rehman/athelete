@@ -1,74 +1,54 @@
 import React from 'react';
 import FormButton from '../FormButton';
-import FormDateInput from '../FormDateInput';
 import FormTextInput from '../FormTextInput';
 import styles from './index.module.scss';
 
 export default function Summary({ data, handleSubmit, handleEdit }) {
+    const basicInfo = [
+        { label: "Name", value: data?.name },
+        { label: "Date of Birth", value: data?.dob },
+        { label: "Gender", value: data?.gender },
+        { label: "Sports", value: data?.sports.join(", ") }
+    ];
+
+    const aboutInfo = [
+        { label: "Description", value: data?.description },
+        { label: "Location", value: data?.location },
+        { label: "Interests", value: data?.interest },
+        { label: "Team", value: data?.team }
+    ]
     return (
         <div className={styles.profileSummary}>
             <fieldset>
                 <legend>Basic Info</legend>
                 <div className={styles.form} >
-                    <FormTextInput
-                        value={data?.name}
-                        label="Name"
+                    {basicInfo.map((field, index) => <FormTextInput
+                        key={index}
+                        value={field.value}
+                        label={field.label}
                         className="form-input"
                         readOnly
-                    />
-                    <FormDateInput
-                        value={data?.dob}
-                        label="Date of Birth"
-                        className="form-input"
-                        readOnly
-                    />
-                    <FormTextInput
-                        value={data?.gender}
-                        label="Gender"
-                        className="form-input"
-                        readOnly
-                    />
-                    <FormTextInput
-                        value={data?.sports.join(", ")}
-                        label="Sports"
-                        className="form-input"
-                        readOnly
-                    />
+                    />)}
                 </div>
             </fieldset>
 
             <fieldset>
                 <legend>About Info</legend>
                 <div className={styles.form} >
-                    <FormTextInput
-                        value={data?.description}
-                        label="Description"
+                    {
+                        aboutInfo.map((field, index) => <FormTextInput
+                        key={index}
+                        value={field.value}
+                        label={field.label}
                         className="form-input"
                         readOnly
-                        multiple
-                    />
-                    <FormTextInput
-                        value={data?.location}
-                        label="Location"
-                        className="form-input"
-                        readOnly
-                    />
-                    <FormTextInput
-                        value={data?.interest}
-                        label="Interests"
-                        className="form-input"
-                        readOnly
-                    />
-                    <FormTextInput
-                        value={data?.team}
-                        label="Team"
-                        className="form-input"
-                        readOnly
-                    />
+                        multiple={field.label === "Description"}
+                    />)
+                    }
                 </div>
             </fieldset>
             <div className='form-buttons__container'>
-                <FormButton onClick={handleSubmit} label="Submit" />
+                <FormButton onClick={handleSubmit} label="Submit" testId="formSubmit" />
                 <FormButton onClick={() => handleEdit()} label="Back" />
             </div>
         </div>

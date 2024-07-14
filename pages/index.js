@@ -88,7 +88,7 @@ export async function getServerSideProps({ query }) {
   if (query.id) {
     const response = await fetch(`${process.env.ROOT_DIR}/api/${query.id}`);
     const profile = await response.json();
-  
+
     return {
       props: {
         profile: profile.data
@@ -101,5 +101,5 @@ export async function getServerSideProps({ query }) {
       }
     }
   }
-  
+
 }

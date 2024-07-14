@@ -11,7 +11,7 @@ export default async (req, res) => {
         const userSignup = await db.collection("user").insertOne({
             name, gender, dob, location, team, description, interest, image, sports
         });
-        if (userSignup) res.status(200).json({ message: 'Signup successful!' });
+        if (userSignup) res.status(200).json({ message: 'Signup successfull!' });
 
     } catch (e) {
         console.error(e);

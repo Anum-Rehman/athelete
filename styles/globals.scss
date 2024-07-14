@@ -11,3 +11,7 @@ body {
     flex-grow: 1;
   }
 }
+
+label {
+  text-transform: capitalize;
+}

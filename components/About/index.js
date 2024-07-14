@@ -17,6 +17,8 @@ const About = ({
     handleEdit
 }) => {
 
+    const inputFields = ['description', 'location', 'team', 'interest'];
+
     return (
         <Formik
             initialValues={{
@@ -33,67 +35,33 @@ const About = ({
                     return (
                         <Form className="form">
                             <div className="profile__form">
-                                <FormTextInput
-                                    className={classNames("form-input", { "field-error": errors.description && touched.description })}
-                                    name="description"
-                                    label="Description"
-                                    type='text'
-                                    value={values.description || ''}
-                                    onChange={handleChange}
-                                    touched={touched.description}
-                                    multiline
-                                    error={errors.description && touched.description ? errors.description
-                                        : errors.message
-                                            ? errors.message
-                                            : ' '}
-                                />
-                                <FormTextInput
-                                    className={classNames("form-input", { "field-error": errors.location && touched.location })}
-                                    name="location"
-                                    label="Location"
-                                    type='text'
-                                    value={values.location || ''}
-                                    onChange={handleChange}
-                                    touched={touched.location}
-                                    error={errors.location && touched.location ? errors.location
-                                        : errors.message
-                                            ? errors.message
-                                            : ' '}
-                                />
-                                <FormTextInput
-                                    className={classNames("form-input", { "field-error": errors.team && touched.team })}
-                                    name="team"
-                                    label="team"
-                                    type='text'
-                                    value={values.team || ''}
-                                    onChange={handleChange}
-                                    touched={touched.team}
-                                    error={errors.team && touched.team ? errors.team
-                                        : errors.message
-                                            ? errors.message
-                                            : ' '}
-                                />
-                                <FormTextInput
-                                    className={classNames("form-input", { "field-error": errors.interest && touched.interest })}
-                                    name="interest"
-                                    label="interest"
-                                    type='text'
-                                    value={values.interest || ''}
-                                    onChange={handleChange}
-                                    touched={touched.interest}
-                                    error={errors.interest && touched.interest ? errors.interest
-                                        : errors.message
-                                            ? errors.message
-                                            : ' '}
-                                />
+                                {
+                                    inputFields.map((field, index) => <FormTextInput
+                                        key={index}
+                                        className={classNames("form-input", { "field-error": errors[field] && touched[field] })}
+                                        name={field}
+                                        label={field}
+                                        type='text'
+                                        testId={`${field}Field`}
+                                        value={values[field] || ''}
+                                        onChange={handleChange}
+                                        touched={touched[field]}
+                                        multiline={field === 'description'}
+                                        error={errors[field] && touched[field] ? errors[field]
+                                            : errors.message
+                                                ? errors.message
+                                                : ' '}
+                                    />)
+                                }
                             </div>
                             <div className='form-buttons__container'>
-                            <FormButton
-                                type="submit"
-                                disabled={(submitCount > 0 && !isValid && !errors.message) || !values.team || !values.location || !values.description || !values.interest}
-                                label="Next"
-                            />
-                            <FormButton onClick={() => handleEdit(values)} label="Back" />
+                                <FormButton
+                                    type="submit"
+                                    disabled={(submitCount > 0 && !isValid && !errors.message) || !values.team || !values.location || !values.description || !values.interest}
+                                    label="Next"
+                                    testId="btnSubmit"
+                                />
+                                <FormButton onClick={() => handleEdit(values)} label="Back" />
                             </div>
                         </Form>
                     )

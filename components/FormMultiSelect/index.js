@@ -18,7 +18,7 @@ const MenuProps = {
   },
 };
 
-export default function MultipleSelectCheckmarks({ label, className, value, onChange, readOnly }) {
+export default function MultipleSelectCheckmarks({ label, className, value, onChange, readOnly, testId }) {
 
   return (
     <div className={className}>
@@ -32,6 +32,7 @@ export default function MultipleSelectCheckmarks({ label, className, value, onCh
           MenuProps={MenuProps}
           variant="standard"
           readOnly={readOnly}
+          id={testId}
         >
           {options.map((name) => (
             <MenuItem key={name} value={name}>

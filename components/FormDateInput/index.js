@@ -6,7 +6,7 @@ import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
 
-const FormDateInput = ({ className, value, onChange, label, error, readOnly }) => {
+const FormDateInput = ({ className, value, onChange, label, error, readOnly, testId }) => {
     const [screenWidth, setScreenWidth] = useState(0);
     const handleResize = () => setScreenWidth(window.innerWidth);
 
@@ -33,6 +33,7 @@ const FormDateInput = ({ className, value, onChange, label, error, readOnly }) =
                         onChange={onChange}
                         readOnly={readOnly}
                         renderInput={(params) => <TextField {...params} variant="standard" />}
+                        className={testId}
                     />
                         : <MobileDatePicker
                             label={label}
@@ -42,6 +43,7 @@ const FormDateInput = ({ className, value, onChange, label, error, readOnly }) =
                             onChange={onChange}
                             readOnly={readOnly}
                             renderInput={(params) => <TextField {...params} variant="standard" />}
+                            className={testId}
                         />}
                 </Stack>
             </LocalizationProvider>

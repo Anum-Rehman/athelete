@@ -106,6 +106,7 @@ const BasicInfo = ({
                                         : errors.message
                                             ? errors.message
                                             : ' '}
+                                    testId="nameField"
                                 />
                                 <FormSelectInput
                                     className={classNames("form-input", { "field-error": errors.gender && touched.gender })}
@@ -117,6 +118,7 @@ const BasicInfo = ({
                                     options={genders}
                                     touched={touched.gender}
                                     error={errors.gender && touched.gender ? errors.gender : ' '}
+                                    testId="genderField"
                                 />
                                 <FormDateInput
                                     className={classNames("form-input", { "field-error": errors.dob && touched.dob })}
@@ -127,6 +129,7 @@ const BasicInfo = ({
                                     onChange={e => setFieldValue('dob', e)}
                                     touched={touched.dob}
                                     error={errors.dob && touched.dob ? errors.dob : ' '}
+                                    testId="dobField"
                                 />
                                 <FormMultiSelect
                                     className={classNames("form-input", { "field-error": errors.options && touched.sports })}
@@ -136,6 +139,7 @@ const BasicInfo = ({
                                     onChange={e => setFieldValue('sports', e.target.value)}
                                     touched={touched.sports}
                                     error={errors.sports && touched.sports ? errors.sports : ' '}
+                                    testId="sportsField"
                                 />
                             </div>
                             <FormButton
@@ -143,6 +147,7 @@ const BasicInfo = ({
                                 disabled={(submitCount > 0 && !isValid && !errors.message) || (!values.dob || !values.gender || !values.name ||
                                     !values.sports.length)}
                                 label="Next"
+                                testId="btnNext"
                             />
                         </Form>
                     )

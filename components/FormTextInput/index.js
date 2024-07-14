@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TextField, Box } from '@mui/material';
-import classNames from 'classnames';
 
 const FormTextInput = (props) => {
     const {
@@ -14,7 +13,8 @@ const FormTextInput = (props) => {
         className,
         error,
         multiline,
-        readOnly
+        readOnly,
+        testId
     } = props;
     const alphaRegex = /^[A-Z a-z]+$/;
 
@@ -22,8 +22,8 @@ const FormTextInput = (props) => {
         <Box
             className={className}
         >
-            <TextField 
-                fullWidth 
+            <TextField
+                fullWidth
                 label={label}
                 value={value}
                 name={name}
@@ -34,6 +34,7 @@ const FormTextInput = (props) => {
                 onKeyDown={e => type === "alpha" && !e.key.match(alphaRegex) && e.preventDefault()}
                 placeholder={placeholder}
                 variant="standard"
+                id={testId}
             />
             {error && <label className="error">{error}</label>}
         </Box>

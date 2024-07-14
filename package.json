@@ -36,6 +36,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@types/mongodb": "^4.0.7"
+    "@types/mongodb": "^4.0.7",
+    "cypress": "^13.13.0"
   }
 }

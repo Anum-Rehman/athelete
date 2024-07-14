@@ -30,6 +30,8 @@ const List = ({ profiles }) => {
         router.push(`/profile/${id}`)
     }
 
+    const infoFields = ["", "Name", "Gender", "Location", "View"];
+
     return (
         <div style={{ maxWidth: "95%", margin: "0 auto" }} >
             <Typography variant='h5' className="listHeading">List Of Athelete</Typography>
@@ -37,11 +39,9 @@ const List = ({ profiles }) => {
                 <Table className="listTable" size="large" aria-label="a dense table">
                     <TableHead>
                         <TableRow>
-                            <StyledTableCell></StyledTableCell>
-                            <StyledTableCell align="left" >Name</StyledTableCell>
-                            <StyledTableCell align="left" >Gender</StyledTableCell>
-                            <StyledTableCell align="left" >Location</StyledTableCell>
-                            <StyledTableCell align="left" >View</StyledTableCell>
+                            {
+                                infoFields.map((field, index) => <StyledTableCell key={index} align={field ? "left" : ""}>{field}</StyledTableCell>)
+                            }
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -57,7 +57,7 @@ const List = ({ profiles }) => {
                                 <TableCell align="left">{profile.gender}</TableCell>
                                 <TableCell align="left">{profile.location}</TableCell>
                                 <TableCell align="left">
-                                    <IconButton edge="end" aria-label="delete" onClick={() => handleView(profile._id)}>
+                                    <IconButton edge="end" aria-label="delete" id={profile._id} onClick={() => handleView(profile._id)}>
                                         <VisibilityOutlinedIcon />
                                     </IconButton></TableCell>
                             </TableRow>
